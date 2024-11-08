@@ -236,7 +236,7 @@ print(f"Desde la posicion 2 y 6 '6 no se incluye': {texto[2:6]}")
 print(f"Cinco caracteres empezando por la derecha: {texto[-5]}")
 print("")
 
-# Funciones que podemos utilizar con cadenas de texto
+# Métodos (len es funcion) que podemos utilizar con cadenas de texto
 print(texto)
 print(len(texto))   # Devuelve el num. total de caracteres en la cadena, incluyendo espacios y símbolos
 print(texto.lower())  # Convierte --> todos los caracteres de la cadena a minúsculas

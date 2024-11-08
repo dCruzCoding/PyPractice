@@ -294,13 +294,13 @@ diccionario_conjunto = {elemento: None for elemento in conjunto}   # Resultado: 
 
 
 '''
-#######################################
-#        UTILIZANDO FUNCIONES         #
-#######################################
+###############################################
+#        UTILIZANDO FUNCIONES/METODOS         #
+###############################################
 Se mostrarán por lo general aplicandose en listas. Para saber si también se pueden usar con tuplas o conjuntos 
 acuerdate de comprobar si tiene algun requisito.
 
-Recuerda: Si hay algunas de las letras M, O o I significará que esa función necesita que la colección sea Mutable -> M | Ordenable -> O | Indexable-> I
+Recuerda: Si hay algunas de las letras M, O o I significará que esa función/método necesita que la colección sea Mutable -> M | Ordenable -> O | Indexable-> I
 Si no hay nada, pueden todas. Si hay excepciones, debería estar señalada (siento si se me escapó algo! 🙏)
 '''
 
@@ -535,13 +535,19 @@ print(f"Contenido de frutas: {frutas_dict}")
 # Mostrar el valor de un elemento con la clave (PO = pomelo)
 print(f"Clave PO: {frutas_dict['PO']}")
 
-# Mostrar el valor de un elemento con GET
+# Mostrar el valor de un elemento buscando la clave (GET)
 print(f"Clave PO: {frutas_dict.get('PO')}")
 print(f"Clave LM: {frutas_dict.get('LM')}")
 
+# Muestra el valor de un elemento por la clave y si no existe, lo añade con valor indicado (SETDEFAULT)
+valor_PERA = frutas_dict.setdefault("PE", "pera")
+print(f"Contenido de frutas después de setdefault(): {frutas_dict}")
+    # ¡OJO! Si existe e indicas otro valor distinto, LO MODIFICA.
+valor_PO = frutas_dict.setdefault("NA", "naftarina")
+print(f"Valor de la clave 'NA' después de setdefault(): {valor_PO}")
+
 # Mostrar la clave de un elemento por su valor... NO SE PUEDE -> DICT en Py están indexados por claves, no por valores.
-# Se podría hacer iterando...
-# Buscar todas las claves asociadas a un valor específico
+    # Se podría hacer iterando... Ej. Buscar todas las claves asociadas a un valor específico
 valor_buscado = "mandarina"
 claves_encontradas = [clave for clave, valor in frutas_dict.items() if valor == valor_buscado]
 
@@ -605,7 +611,6 @@ print(f"Usando update(): {frutas_dict}")  # {'LI': 'limón', 'PO': 'pomelo', 'LM
 # Usando operador '|' (CREA UN NEW DICT)   --> Disponible en Python 3.9+  
 frutas_dict1 = {"LI": "limón", "PO": "pomelo", "LM": "lima", "MA": "mandarina"}
 nuevo_dict1 = {"CH": "cereza", "MA": "manzana", "PO": "pomelo"}
-
 fusionado_dict = frutas_dict1 | nuevo_dict1   # claves repetidas se actualizan, nuevas se crean
 print(f"Usando el operador '|': {fusionado_dict}") # {'LI': 'limón', 'PO': 'pomelo', 'LM': 'lima', 'MA': 'manzana', 'CH': 'cereza'}
 
