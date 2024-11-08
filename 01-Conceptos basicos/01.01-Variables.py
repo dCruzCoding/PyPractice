@@ -236,17 +236,33 @@ print(f"Desde la posicion 2 y 6 '6 no se incluye': {texto[2:6]}")
 print(f"Cinco caracteres empezando por la derecha: {texto[-5]}")
 print("")
 
-# Métodos (len es funcion) que podemos utilizar con cadenas de texto
+
+################################
+#     MÉTODOS con STRINGs      #
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+
 print(texto)
 print(len(texto))   # Devuelve el num. total de caracteres en la cadena, incluyendo espacios y símbolos
+
 print(texto.lower())  # Convierte --> todos los caracteres de la cadena a minúsculas
 print(texto.upper())  # --> Todo a maýusculas
 print(texto.capitalize())  # --> El primer carácter de la cadena a mayúscula y los demás minúsculas
 print(texto.title())    # --> El primer carácter de cada palabra a mayúscula
+
 print(texto.strip())    # Elimina los espacios en blanco al inicio y al final de la cadena
-print(texto.count("o"))  # Está contando el num. de 'o' en "texto"  
-print(f"Es un dígito: {texto.isdigit()}")  # Verifica si todos los caracteres de la cadena son dígitos. Booleano
-# En este caso, devolvería False porque hay letras y espacios.
+   # rstrip() -> elimina espacios al final   |  lstrip() -> elimina espacios al principio
 
+print(texto.split())  # Divide la cadena en una lista de palabras, usando los espacios como delimitador (si solo hay 1 palabra no divida en letras)
+print(texto.join(["Hola,", "soy", "de", "cadi"])) # Lo contrario que split, une las palabras de una lista en una cadena con un espacio entre ellas
+# OJO devuelve -> Hola,-soy-de-cadi
+texto2 = " " # Si quieres que sea separación por espacios habría que poner texto = ' ' antes.
+print(texto2.join(["Hola,", "soy", "de", "cadi"]))   # -> Hola, soy de cadi
+
+print(texto.count("o"))  # Está contando el num. de 'o' en texto  
+
+print(f"Es un dígito: {texto.isdigit()}")  # Verifica si todos los caracteres de la cadena son dígitos (bool). False
 print(f"Es un dígito: {'57'.isdigit()}  \n")  # Comprueba si '57' es un dígito. Devolvería True.
+print(texto.startswith("Hola"))  # Comprueba si la cadena empieza con "Hola" (devuelve True o False)
+print(texto.endswith("cadi"))    # Comprueba si la cadena termina con "cadi"  (¡OJO! Los espacios cuentan)
 
+print(texto2.replace("cadi", "Cádiz"))  # Reemplaza la palabra "cadi" por "Cádiz" en la cadena
