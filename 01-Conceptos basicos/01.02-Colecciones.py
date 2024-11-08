@@ -311,9 +311,19 @@ Si no hay nada, pueden todas. Si hay excepciones, debería estar señalada (sien
 lista_numerica = list(range(1, 20, 2)) # ej. de 1 a 20-no inclusive- con salto 2 -impares
 print(lista_numerica)
 
-# COPY -> Copiar una lista    {M}  (tuplas no lo necesitan debido a su inmutabilidad)
-vacia = frutas.copy()
+# COPY -> Copiar SUPERFICIALMENTE una lista   {M}  (tuplas no lo necesitan debido a su inmutabilidad)
+vacia = frutas.copy()   # ¡CUIDADO! Si cambia la original, cambia la copia
 print(f"Contenido vacía: {vacia}")
+
+# DEEPCOPY -> Copiar PROFUNDAMENTE una lista  {M} **-** Para más INFO mira en DICCIONARIOS **-**
+import copy # necesita importar esto
+lista_original = [1, 2, [3, 4], 5]
+lista_copia_profunda = copy.deepcopy(lista_original)
+# Modificar un elemento mutable (la sublista dentro de la lista)
+lista_original[2].append(6)
+# Mostrar ambas listas (AUNQUE CAMBIE A ORIGINAL NO CAMBIA LA COPIA)
+print(f"Lista original: {lista_original}")
+print(f"Lista copia profunda: {lista_copia_profunda}")
 
 
 ###############################
@@ -340,6 +350,43 @@ print(f"Número de elementos: {len(frutas)}")
 
 # COUNT -> Mostrar el número de veces que tenemos un valor en la lista      {No vale con SETs porque NO ADMITEN DUPLICADOS}
 print(f"Naranja se repite {frutas.count('naranja')} veces")  # Cuidado con las mayúsculas
+
+#############
+#  COUNTER  #     - hay que importar from collections -
+# Se utiliza para contar elementos en un iterable o contar repeticiones en colecciones.
+# COUNTER -> Contar las repeticiones de cada elemento en la lista
+from collections import Counter
+contador_frutas = Counter(frutas)  
+print(f"Conteo de frutas en la lista: {contador_frutas}") 
+# Devolvería algo como -> Counter({'naranja': 1, 'limón': 1, 'fresa': 1, 'lima': 1, 'mandarina': 1})
+
+# elements(): Devuelve un iterador que genera los elementos repetidos según su cuenta
+elementos = list(contador_frutas.elements())  # Convierte el iterador a lista para ver los resultados
+print(f"Elementos contados: {elementos}")
+
+# most_common(): Obtiene los elementos más comunes
+frutas_mas_comunes = contador_frutas.most_common(2)  # Las 2 frutas más comunes
+print(f"Las 2 frutas más comunes: {frutas_mas_comunes}")
+
+# subtract(): Resta elementos de otro iterable o Counter
+contador_frutas.subtract(["manzana", "banana"])  # Resta una ocurrencia de manzana y banana
+print(f"Conteo después de restar frutas: {contador_frutas}")
+
+# update(): Actualiza el Counter con más elementos
+contador_frutas.update(["manzana", "kiwi", "kiwi"])  # Añade más elementos
+print(f"Conteo después de update: {contador_frutas}")
+
+# clear(): Elimina todos los elementos del Counter
+contador_frutas.clear()
+print(f"Conteo después de clear: {contador_frutas}")
+
+# copy(): Crea una copia del Counter -superficial-
+contador_frutas_copy = contador_frutas.copy()
+print(f"Copia del contador: {contador_frutas_copy}")
+
+# sum(): Devuelve la suma de todas las repeticiones
+total_frutas = sum(contador_frutas.values())
+print(f"Suma total de frutas: {total_frutas}")
 
 
 ################################
@@ -593,9 +640,37 @@ print(f"Contenido de frutas: {frutas_dict}")
 frutas_dict.update({"NA": "sandía", "LM": "ciruela", "MA": "kiwi"})  # las claves q existen se modifican, las que no se crean
 print(f"Contenido de frutas: {frutas_dict}")  
 
-# Copiar un diccionario (COPY)
+# CREAR diccionario con CLAVES ESPECIFICADAS y valor inicial (FROMKEYS)
+# Sintaxis: dict.fromkeys(claves, valor)
+claves = ["manzana", "banana", "cereza"]
+frutas_default = dict.fromkeys(claves, "desconocido")
+print(f"Diccionario usando fromkeys(): {frutas_default}")  # {'manzana': 'desconocido', 'banana': 'desconocido', 'cereza': 'desconocido'}
+
+###############################
+#     COPIAR DICCIONARIOS     #
+
+# Copiar SUPERFICIALMENTE un diccionario (COPY) ¡Cambios en original afectan a copia!
 vacio_dict = frutas_dict.copy()
 print(f"Contenido diccionario copiado: {vacio_dict}")
+
+# DEEPCOPY (necesita import copy) Crear una copia 'profunda' de un diccionario (para evitar la referencia a los mismos objetos)
+# Si el diccionario contiene listas, objetos mutables, etc., deepcopy garantiza que las copias sean independientes.
+diccionario_original = {"fruta": ["manzana", "banana"], "cantidad": 5}
+
+copiado_deep = copy.deepcopy(diccionario_original)
+copiado_deep["fruta"].append("cereza")
+
+print(f"Diccionario original: {diccionario_original}")
+print(f"Diccionario deep copy: {copiado_deep}")
+# El diccionario original no cambia cuando se modifica el copiado profundamente
+
+''' ¡¡OJO!!
+Cuando haces una copia "superficial" (con copy() o asignación directa), las referencias internas
+    (como listas o diccionarios dentro de otro diccionario) no se copian, sino que se siguen apuntando 
+    a los mismos objetos. OSEA, SI MODIFICAS LA ORIGINAL, MODIFICAS LA COPIA porque comparten referencia.
+         
+    En cambio, con DEEPCOPY, se copian también los objetos internos, creando nuevas instancias de ellos. 
+    Esto garantiza que tanto el objeto original como el copiado sean completamente independientes. '''
 
 
 #################################################
@@ -648,6 +723,48 @@ print(f"Contenido de frutas después de eliminar 'LI': {frutas_dict}")
 # CLEAR -> Eliminar todos los elementos de un diccionario
 frutas_dict.clear()
 print(f"Contenido de frutas después de clear: {frutas_dict}")
+
+
+#################
+#  DEFAULTDICT  #     - hay que importar from collections -
+# Variante del diccionario normal, solo que este si tratas de accede a clave q no existe no da error, la crea
+from collections import defaultdict
+
+# Crear un defaultdict donde el valor por defecto es el valor de funcion int (osea, 0)
+frutas_defaultdict = defaultdict(int) #  el valor por defecto de cualquier clave que no exista es 0 
+
+# Agregar o incrementar elementos
+frutas_defaultdict["manzana"] += 1  # manzana no existe, por lo que se crea con valor 0 y luego se incrementa
+frutas_defaultdict["banana"] += 2   # igual con banana
+print(f"Diccionario defaultdict: {frutas_defaultdict}")
+
+# Es como usar 'setdefault' de forma implícita en el diccionario
+# Cualquier operación de acceso* creará la clave con el valor predeterminado si no existe
+# Operación de acceso: acceder al valor directamente con la clave, iterar con FOR, metodos GET, ITEMS.
+
+
+#############
+#  COUNTER  #     - hay que importar from collections -
+# Se utiliza para contar elementos en un iterable o contar ocurrencias en colecciones.
+
+# El contador también puede contar valores en un diccionario (por ejemplo, las frutas del diccionario)
+frutas_dict = {"NA": "naranja", "LI": "limón", "PO": "pomelo", "LM": "lima", "MA": "mandarina"}
+contador_frutas_dict = Counter(frutas_dict.values())  # Cuenta las ocurrencias de cada fruta
+print(f"Conteo de frutas en el diccionario: {contador_frutas_dict}")
+
+# Puedes actualizar el Counter con nuevos elementos o modificar sus valores
+contador_frutas["kiwi"] += 1  # Si la fruta ya existe, incrementa su cuenta, si no, la añade con 1
+print(f"Conteo de frutas actualizado: {contador_frutas}")
+
+# Puedes usar most_common() para obtener los elementos más frecuentes
+frutas_mas_comunes = contador_frutas.most_common(2)  # Las 2 frutas más comunes
+print(f"Las 2 frutas más comunes: {frutas_mas_comunes}")
+
+# Los métodos como update() también se pueden usar para actualizar el conteo con más elementos
+contador_frutas.update(["manzana", "kiwi", "kiwi"])
+print(f"Conteo de frutas después de update: {contador_frutas}")
+
+# Hay más metodos disponibles, todos los que aparecen en la parte de listas COUNTER (linea 355)
 
 
 ###############################################
