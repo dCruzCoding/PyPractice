@@ -262,7 +262,7 @@ print(texto.count("o"))  # Está contando el num. de 'o' en texto
 
 print(f"Es un dígito: {texto.isdigit()}")  # Verifica si todos los caracteres de la cadena son dígitos (bool). False
 print(f"Es un dígito: {'57'.isdigit()}  \n")  # Comprueba si '57' es un dígito. Devolvería True.
-print(texto.startswith("Hola"))  # Comprueba si la cadena empieza con "Hola" (devuelve True o False)
-print(texto.endswith("cadi"))    # Comprueba si la cadena termina con "cadi"  (¡OJO! Los espacios cuentan)
+print(texto.startswith("Hola"))  # Comprueba si la cadena empieza con "Hola" (devuelve bool) -> False (¡OJO! Los espacios cuentan)
+print(texto.endswith("(L)"))    # Comprueba si la cadena termina con "(L)"  -> True
 
-print(texto2.replace("cadi", "Cádiz"))  # Reemplaza la palabra "cadi" por "Cádiz" en la cadena
+print(texto.replace("  Hola", "Aloha"))  # Reemplaza "  Hola" por "Aloha" en la cadena
