@@ -228,7 +228,8 @@ print("")
 #         Operaciones con SETS --> UNION ('|' o '.union()')           #
 #######################################################################
 
-# La unión de dos SETs consiste en crear un nuevo SET que contiene todos los elementos de ambos, eliminando duplicados. 
+# La unión de dos SETs consiste en crear un nuevo SET que contiene 
+# todos los elementos de ambos, eliminando duplicados. 
 conjunto_a = {1, 2, 3}
 conjunto_b = {3, 4, 5}
 
@@ -245,7 +246,8 @@ print(f"Unión usando el método .union(): {union_metodo}")
 #     Operaciones con SETS --> INTERSECCIÓN ('&' o '.intersection()')     #
 ###########################################################################
 
-# La intersección de dos SETs consiste en crear un nuevo SET que contiene solo los elementos que están presentes en ambos conjuntos. 
+# La intersección de dos SETs consiste en crear un nuevo SET que contiene 
+# solo los elementos que están presentes en ambos conjuntos. 
 conjunto_a = {1, 2, 3}
 conjunto_b = {3, 4, 5}
 
@@ -262,7 +264,8 @@ print(f"Intersección usando el método .intersection(): {interseccion_metodo}")
 #     Operaciones con SETS --> DIFERENCIA ('-' o '.difference()')      #
 ########################################################################
 
-# La diferencia de dos SETs consiste en crear un nuevo SET que contiene los elementos que están en el primer conjunto pero no en el segundo. 
+# La diferencia de dos SETs consiste en crear un nuevo SET que contiene 
+# los elementos que están en el primer conjunto pero no en el segundo. 
 conjunto_a = {1, 2, 3}
 conjunto_b = {3, 4, 5}
 
@@ -273,6 +276,100 @@ print(f"Diferencia usando el operador -: {diferencia}")  # diferencia es {1, 2}
 # O usando el método .difference()
 diferencia_metodo = conjunto_a.difference(conjunto_b)
 print(f"Diferencia usando el método .difference(): {diferencia_metodo}") 
+
+
+########################################################################################
+#     Operaciones con SETS --> DIFERENCIA SIMÉTRICA ('^' o '.symmetric_difference()')  #
+########################################################################################
+
+# La diferencia simétrica de dos SETs consiste en crear un nuevo SET que contiene 
+# los elementos que están en el primer conjunto o en el segundo, pero no en ambos 
+# (es decir, los elementos que no se repiten en ninguno de los dos conjuntos).
+conjunto_a = {1, 2, 3}
+conjunto_b = {3, 4, 5}
+
+# Usando el operador '^'
+diferencia_simetrica = conjunto_a ^ conjunto_b
+print(f"Diferencia simétrica usando el operador ^: {diferencia_simetrica}")  # diferencia simétrica es {1, 2, 4, 5}
+
+# O usando el método .symmetric_difference()
+diferencia_simetrica_metodo = conjunto_a.symmetric_difference(conjunto_b)
+print(f"Diferencia simétrica usando el método .symmetric_difference(): {diferencia_simetrica_metodo}")
+
+
+######################################################################################
+#      OPERACIONES CON SET's --> Subconjuntos, Superconjuntos y 'disjuntos' (?)      #
+######################################################################################
+# Además de las funciones que veréis a continuación, para los sub y super se pueden usar OPERADORES DE COMPARACIÓN
+
+conjunto_a = {1, 2, 3}
+conjunto_b = {1, 2, 3, 4, 5}
+
+###########################
+#       SUBCONJUNTOS      #  
+# ISSUBSET -> Verifica si el conjunto_a es un SUBCONJUNTO de conjunto_b (todos los elementos de A están también en B)
+print(f"¿Es conjunto_a un subconjunto de conjunto_b? {conjunto_a.issubset(conjunto_b)}")  # True
+
+# OPERADORES DE COMPARACIÓN
+# '<=' Se usa cuando el subconjunto es IGUAL que el conjunto. Es decir, A {1,2,3} <= B {1,2,3}    - Lo sé, es raro.
+# '<' SUBCONJUNTO PROPIO -> A es subconjunto y != B
+print(f"¿Es conjunto_a un subconjunto de conjunto_b? {conjunto_a <= conjunto_b}")  # True -> Sería SUBCONJUNTO PROPIO
+
+
+#############################
+#       SUPERCONJUNTOS      #  
+# ISSUPERSET -> Verifica si el conjunto_a es un SUPERCONJUNTO de conjunto_b (todos los elementos de B están también en A)
+print(f"¿Es conjunto_a un superconjunto de conjunto_b? {conjunto_a.issuperset(conjunto_b)}")  # True
+
+# OPERADORES DE COMPARACIÓN
+# '>=' Se usa cuando el superconjunto es IGUAL que el conjunto. Es decir, A {1,2,3} >= B {1,2,3}    - Lo sé, es raro.
+# '>' SUPERCONJUNTO PROPIO -> A es superconjunto y != B
+print(f"¿Es conjunto_a un superconjunto de conjunto_b? {conjunto_a >= conjunto_b}")  # True -> Sería SUPERCONJUNTO PROPIO
+
+
+##########################
+#       DISJUNTO(?)      # 
+# ISDISJOINT -> Verifica si los conjuntos son 'disjuntos' --> NINGUN ELEMENTO EN COMÚN
+conjunto_e = {1, 2, 3}
+conjunto_f = {4, 5, 6}
+conjunto_g = {3, 4, 5}
+
+print(f"¿Conjunto_e y conjunto_f son disjuntos? {conjunto_e.isdisjoint(conjunto_f)}")  # True
+print(f"¿Conjunto_e y conjunto_g son disjuntos? {conjunto_e.isdisjoint(conjunto_g)}")  # False
+
+
+
+######################################################################################
+#      OPERACIONES CON SET's --> Subconjuntos, Superconjuntos y 'disjuntos' (?)      #
+######################################################################################
+# Además de las funciones que veréis a continuación, para los sub y super se pueden usar OPERADORES DE COMPARACIÓN
+
+conjunto_a = {1, 2, 3}
+conjunto_b = {1, 2, 3, 4, 5}
+
+###########################
+#       SUBCONJUNTOS      #  
+# ISSUBSET -> Verifica si el conjunto_a es un SUBCONJUNTO de conjunto_b (todos los elementos de A están también en B)
+print(f"¿Es conjunto_a un subconjunto de conjunto_b? {conjunto_a.issubset(conjunto_b)}")  # True
+
+# usando OPERADORES DE COMPARACIÓN (<=)
+print(f"¿Es conjunto_a un subconjunto de conjunto_b? {conjunto_a <= conjunto_b}")  # True
+
+
+#############################
+#       SUPERCONJUNTOS      # 
+# ISSUPERSET -> Verifica si el conjunto_a es un SUPERCONJUNTO de conjunto_b (B contiene todos los elementos de A)
+print(f"¿Es conjunto_b un superconjunto de conjunto_a? {conjunto_b.issuperset(conjunto_a)}")  # True
+
+
+##########################
+#       DISJUNTO(?)      # 
+# ISDISJOINT -> Verifica si los conjuntos son 'disjuntos' --> NINGUN ELEMENTO EN COMÚN
+conjunto_e = {1, 2, 3}
+conjunto_f = {4, 5, 6}
+conjunto_g = {3, 4, 5}
+print(f"¿Conjunto_e y conjunto_f son disjuntos? {conjunto_e.isdisjoint(conjunto_f)}")  # True
+print(f"¿Conjunto_e y conjunto_g son disjuntos? {conjunto_e.isdisjoint(conjunto_g)}")  # False
 
 
 ###############################################
@@ -321,7 +418,7 @@ lista_original = [1, 2, [3, 4], 5]
 lista_copia_profunda = copy.deepcopy(lista_original)
 # Modificar un elemento mutable (la sublista dentro de la lista)
 lista_original[2].append(6)
-# Mostrar ambas listas (AUNQUE CAMBIE A ORIGINAL NO CAMBIA LA COPIA)
+# Mostrar ambas listas (AUNQUE CAMBIE LA LISTA EN LA ORIGINAL NO CAMBIA LA COPIA)
 print(f"Lista original: {lista_original}")
 print(f"Lista copia profunda: {lista_copia_profunda}")
 
@@ -446,7 +543,7 @@ print(f"Contenido de frutas: {frutas}")
 frutas.sort(reverse=True)  # Orden descendente
 print(f"Contenido de frutas: {frutas}")
 
-# SORTED -> Crea una NUEVA LISTA ORDENADA (mantiene la lista base)     {O - I}
+# SORTED -> Crea una NUEVA LISTA ORDENADA ALFABETICAMENTE -puedes cambiar el criterio de ordenacion- (mantiene la lista base)     {O - I}
 frutas_ordenada = sorted(frutas)   # ascendente
 frutas_ordenada_descendente = sorted(frutas, reverse=True)   # descedente
 frutas_ordenada_por_longitud = sorted(frutas, key=len)   # ordenadas por longitud
@@ -474,6 +571,10 @@ print(f"Contenido de frutas: {frutas}")
 # Para evitar errores podemos preguntar por la existencia de un valor previa eliminación
 if "uvas" in frutas:
     frutas.remove("uvas")
+
+# DISCARD -> Elimina un elemento del conjunto sin generar error si no está presente  {¡¡¡¡ SOLO PARA SETs !!!!}
+frutas.discard("manzana")  
+print(f"Contenido de frutas después de discard: {frutas}")
 
 # CLEAR -> Eliminar todos los elementos de una lista      {M}
 frutas.clear()
@@ -508,69 +609,39 @@ print(f"Suma con valor inicial: {sum_valu2}")  # 41
 
 
 
-''' 
-##################################################
-#                   DICCIONARIOS                 #
-##################################################
-#                                                #
-# Un diccionario es una colección NO ORDENADA    #
-# pero INDEXADA con una clave única para cada    #
-# valor. Sus elementos son pares clave-valor.    #
-#                                                #
-# ¡OJO! NO SE PUEDEN REPETIR CLAVES, pero        #
-# SÍ LOS VALORES. De hecho, varias claves        #
-# pueden tener el MISMO VALOR                    #
-#                                                #
-# Los diccionarios son MUTABLES; se pueden       #
-# modificar después de haber sido creados.       #
-#                                                # 
-# Sintaxis: [nombre_variable] = {                #
-#                "clave1": [valor1],             #
-#                "clave2": [valor2],             #
-#                ... }                           #
-#                                                #
-# Ejemplos:                                      #
-#     persona = {                                #
-#         "nombre": "Juan",                      #
-#         "edad": 30,                            #
-#         "ciudad": "Madrid" }                   #
-#                                                #
-#     libro = {                                  #
-#         "titulo": "Cien años de soledad",      #
-#         "autor": "Gabriel García Márquez",     #
-#         "año": 1967 }                          #
-
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
-#                                                #
-# Acceso a valores:                              #
-#    valor = nombre_diccionario["clave"]         #
-#    Ejemplo:                                    #
-#    nombre_persona = persona["nombre"]          #
-#                                                #
-# Métodos comunes de diccionarios:               #
-# - .keys() : Retorna una lista de todas las     #
-#   claves del diccionario.                      #
-#   Ejemplo: claves = persona.keys()             #
-#                                                #
-# - .values() : Retorna una lista de todos los   #
-#   valores del diccionario.                     #
-#   Ejemplo: valores = persona.values()          #
-#                                                #
-# - .items() : Retorna una lista de tuplas       #
-#   (clave, valor) del diccionario.              #
-#   Ejemplo: elementos = persona.items()         #
-#                                                #
-# - .get(clave) : Retorna el valor asociado a    #
-#   la clave especificada, o None si la clave    #
-#   no existe.                                   #
-#   Ejemplo: edad_persona = persona.get("edad")  #
-#                                                #
-# - .update(nuevo_diccionario) : Actualiza el    #
-#   diccionario con los pares clave-valor del    #
-#   nuevo diccionario.                           #
-#   Ejemplo: persona.update({"edad": 26})        #
-#                                                #
-################################################## '''
+'''
+##################################################        
+#                   DICCIONARIOS                 #        
+##################################################        
+#                                                #         
+# Un diccionario es una colección NO ORDENADA    #        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+# pero INDEXADA con una clave única para cada    #        # Acceso a valores:                              #
+# valor. Sus elementos son pares clave-valor.    #        #    valor = nombre_diccionario["clave"]         #
+#                                                #        #    Ej: nombre_persona = persona["nombre"]      #
+# ¡OJO! NO SE PUEDEN REPETIR CLAVES, pero        #        #                                                #
+# SÍ LOS VALORES. De hecho, varias claves        #        # Métodos comunes de diccionarios:               #
+# pueden tener el MISMO VALOR                    #        # - .keys() : Retorna lista con todas las claves #
+#                                                #        #   Ejemplo: claves = persona.keys()             #
+# Los diccionarios son MUTABLES; se pueden       #        #                                                #
+# modificar después de haber sido creados.       #        # - .values() : Retorna lista con los valores    #
+#                                                #        #   Ejemplo: valores = persona.values()          #
+# Sintaxis: [nombre_variable] = {                #        #                                                #
+#                "clave1": [valor1],             #        # - .items() : Retorna lista de elementos        #
+#                "clave2": [valor2],             #        #   (pares -> clave, valor)                      #
+#                ... }                           #        #   Ejemplo: elementos = persona.items()         #
+#                                                #        #                                                #
+# Ejemplos:                                      #        # - .get(clave) : Retorna el valor asociado a    #
+#     persona = {                                #        #   la clave especificada (None si no existe)    #
+#         "nombre": "Juan",                      #        #   Ejemplo: edad_persona = persona.get("edad")  #
+#         "edad": 30,                            #        #                                                #
+#         "ciudad": "Madrid" }                   #        # - .update(nuevo_diccionario) : Actualiza el    #
+#                                                #        #   diccionario con los pares clave-valor del    #
+#     libro = {                                  #        #   nuevo diccionario.                           #
+#         "titulo": "Cien años de soledad",      #        #   Ejemplo: persona.update({"edad": 26})        #
+#         "autor": "Gabriel García Márquez",     #        ##################################################
+#         "año": 1967 }                          #        
+##################################################        
+'''
 
 # Declaración de variables 'PARA DECLARAR VV QUE SON DICCIONARIOS SE USAN LLAVES '{}'     pd: 'dict' = dictionary = diccionario
 diccionario_vacio = {}
@@ -649,12 +720,15 @@ print(f"Diccionario usando fromkeys(): {frutas_default}")  # {'manzana': 'descon
 ###############################
 #     COPIAR DICCIONARIOS     #
 
-# Copiar SUPERFICIALMENTE un diccionario (COPY) ¡Cambios en original afectan a copia!
+# COPY -> Copia un diccionario. 
+# ¡OJO! Copia SUPERFICIAL: cuando es un diciconario anidado (>= 1 de sus elementos es mutable -list / dict)...
+# Estos elementos mutables (copia y original) mantienen referencia al mismo objeto ->> ¡Cambios en CUALQUIERA DE LAS DOS afectan a LA OTRA!
 vacio_dict = frutas_dict.copy()
 print(f"Contenido diccionario copiado: {vacio_dict}")
 
-# DEEPCOPY (necesita import copy) Crear una copia 'profunda' de un diccionario (para evitar la referencia a los mismos objetos)
+# DEEPCOPY (necesita import copy)  -> Crear una copia 'profunda' de un diccionario (evita limitacion de copy con anidados)
 # Si el diccionario contiene listas, objetos mutables, etc., deepcopy garantiza que las copias sean independientes.
+# UTIL PARA ANIDADOS, SI NO SON ANIDADOS ES LO MISMO QUE USAR COPY
 diccionario_original = {"fruta": ["manzana", "banana"], "cantidad": 5}
 
 copiado_deep = copy.deepcopy(diccionario_original)
@@ -665,12 +739,16 @@ print(f"Diccionario deep copy: {copiado_deep}")
 # El diccionario original no cambia cuando se modifica el copiado profundamente
 
 ''' ¡¡OJO!!
-Cuando haces una copia "superficial" (con copy() o asignación directa), las referencias internas
-    (como listas o diccionarios dentro de otro diccionario) no se copian, sino que se siguen apuntando 
-    a los mismos objetos. OSEA, SI MODIFICAS LA ORIGINAL, MODIFICAS LA COPIA porque comparten referencia.
+Cuando haces una copia "superficial" (con copy() o asignación directa), ⚠️ SI LA COLECCIÓN ES ANIDADA ⚠️
+    (listas o diccionarios dentro de otro diccionario) sus elementos mutables (listas/dict) no se copian, 
+    sino que se siguen apuntando a los mismos objetos. OSEA, SI MODIFICAS UNA, CAMBIAS TMBN LA OTRA porque comparten referencia.
          
     En cambio, con DEEPCOPY, se copian también los objetos internos, creando nuevas instancias de ellos. 
-    Esto garantiza que tanto el objeto original como el copiado sean completamente independientes. '''
+    Esto garantiza que tanto el objeto original como el copiado sean completamente independientes. 
+    
+    La cosa es que cuando NO ES ANIDADO, los valores son inmutables y la copia de estos valores no afecta al original. 
+    Cada diccionario tiene su propia copia de esos valores, y las modificaciones en uno no afectan al otro. 
+    Por eso en estos casos COPY = DEEPCOPY'''
 
 
 #################################################
