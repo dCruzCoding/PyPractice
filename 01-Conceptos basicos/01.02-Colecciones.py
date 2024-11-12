@@ -300,7 +300,7 @@ print(f"Diferencia simétrica usando el método .symmetric_difference(): {difere
 ######################################################################################
 #      OPERACIONES CON SET's --> Subconjuntos, Superconjuntos y 'disjuntos' (?)      #
 ######################################################################################
-# Además de las funciones que veréis a continuación, para los sub y super se pueden usar OPERADORES DE COMPARACIÓN
+# Además de las funciones que aparecerán a continuación, para sub y super se pueden usar OPERADORES DE COMPARACIÓN
 
 conjunto_a = {1, 2, 3}
 conjunto_b = {1, 2, 3, 4, 5}
@@ -445,6 +445,12 @@ print(all(valores))  # False, porque todos los elementos son "falsos" en un cont
 # LEN -> Mostrar el número de elementos que contiene la lista
 print(f"Número de elementos: {len(frutas)}")
 
+# ENUMERATE -> Devuelve los elementos de la lista con un índice (ordenado) 
+# Mostrar los índices y elementos de la lista:
+print("Índices y elementos de la lista:")
+for i, fruta in enumerate(frutas):
+    print(f"Índice {i}: {fruta}")
+
 # COUNT -> Mostrar el número de veces que tenemos un valor en la lista      {No vale con SETs porque NO ADMITEN DUPLICADOS}
 print(f"Naranja se repite {frutas.count('naranja')} veces")  # Cuidado con las mayúsculas
 
@@ -573,7 +579,8 @@ if "uvas" in frutas:
     frutas.remove("uvas")
 
 # DISCARD -> Elimina un elemento del conjunto sin generar error si no está presente  {¡¡¡¡ SOLO PARA SETs !!!!}
-frutas.discard("manzana")  
+frutas_set = set(frutas)
+frutas_set.discard("manzana")  
 print(f"Contenido de frutas después de discard: {frutas}")
 
 # CLEAR -> Eliminar todos los elementos de una lista      {M}
@@ -608,6 +615,41 @@ sum_valu2 = sum([3, 1, 4, 1, 5, 9, 2, 6], 10)   # Se puede añadir a la suma un 
 print(f"Suma con valor inicial: {sum_valu2}")  # 41
 
 
+################################
+#         COMBINAR DATOS       #
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+
+# ZIP (merge) -> Combina múltiples iterables en un solo iterable de tuplas con elementos de las mismas posiciones {I - O}
+# El resultado es un objeto de tipo zip que podemos convertir en lista, tupla, etc.
+# No se puede modificar directamente (no es mutable), pero respeta el orden de los iterables originales.
+# Si los iterables tienen diferente longitud, `zip` detiene la combinación en el más corto.
+names = ['Ana', 'Luis', 'Marta']
+ages = [25, 30, 28]
+lista_zippeada = list(zip(names, ages))  # [(‘Ana’, 25), (‘Luis’, 30), (‘Marta’, 28)]
+print(f"Resultado de zip(names, ages): {lista_zippeada}")
+
+# Ejemplo de uso en un bucle `for`
+for name, age in zip(names, ages):
+    print(f"{name} tiene {age} años")
+
+# MÉTODOS SIMILARES O ALTERNATIVOS
+# Asignacion DIRECTA -> Combina iterables manualmente usando un índice
+lista_combinada_asignacion = [(names[i], ages[i]) for i in range(min(len(names), len(ages)))]
+print(f"Combinación directa: {lista_combinada_asignacion}")
+
+# SI LO USAMOS JUNTO A ENUMERATE... (recuerda, ENUMERATE genera iterable con índice junto con cada elemento)
+# Generamos un iterable con las tuplas y un índice ordenado
+for i, (name, age) in enumerate(lista_zippeada):
+    print(f"{i}: {name} tiene {age} años")
+    # 0: Ana tiene 25 años
+    # 1: Luis tiene 30 años
+    # 2: Marta tiene 28 años
+
+### ¡OJO! Se puede hacer el proceso contrario con ZIP* -DESEMPAQUETADO- (deshace la combinacion)
+# Permite separar los elementos combinados en sus iterables originales
+name, age = zip(*lista_zippeada)  # Esto "desempaqueta" las tuplas
+print(f"Nombres desempaquetados: {name}")
+print(f"Edades desempaquetadas: {age}")
 
 '''
 ##################################################        
@@ -657,7 +699,7 @@ print(f"Clave PO: {frutas_dict['PO']}")
 print(f"Clave PO: {frutas_dict.get('PO')}")
 print(f"Clave LM: {frutas_dict.get('LM')}")
 
-# Muestra el valor de un elemento por la clave y si no existe, lo añade con valor indicado (SETDEFAULT)
+# Muestra el valor de un elemento por la clave y si no existe, lo AÑADE con valor indicado (SETDEFAULT)
 valor_PERA = frutas_dict.setdefault("PE", "pera")
 print(f"Contenido de frutas después de setdefault(): {frutas_dict}")
     # ¡OJO! Si existe e indicas otro valor distinto, LO MODIFICA.
@@ -772,6 +814,27 @@ fusionado_dict2 = {**frutas_dict1, **nuevo_dict1}
 print(f"Usando desempaquetado (**): {fusionado_dict2}")  # actua igual que el resto con valores iguales, sobreescribe
 # {'LI': 'limón', 'PO': 'pomelo', 'LM': 'lima', 'MA': 'manzana', 'CH': 'cereza'}
 
+# ZIP -> Combina dos listas (o iterables) en un diccionario
+# Usando zip() para combinar dos listas en un diccionario:
+keys = ['LI', 'PO', 'LM', 'MA']
+values = ['limón', 'pomelo', 'lima', 'mandarina']
+combinado_zip = dict(zip(keys, values))
+print(f"Usando zip() para combinar: {combinado_zip}")  
+# {'LI': 'limón', 'PO': 'pomelo', 'LM': 'lima', 'MA': 'mandarina'}
+
+# ENUMERATE -> Combina índice con valores, útil para usar con diccionarios
+# Usando enumerate para crear un diccionario con índices como claves:
+frutas_dict3 = dict(enumerate(['limón', 'pomelo', 'lima', 'mandarina']))
+print(f"Usando enumerate(): {frutas_dict3}")  
+# {0: 'limón', 1: 'pomelo', 2: 'lima', 3: 'mandarina'}
+
+# COMBINAR DICCIONARIOS CON ZIP Y ENUMERATE JUNTOS
+# Usando enumerate con zip para combinar dos listas en un diccionario con índices
+keys = ['LI', 'PO', 'LM', 'MA']
+values = ['limón', 'pomelo', 'lima', 'mandarina']
+combinado_enum_zip = dict(enumerate(zip(keys, values)))
+print(f"Usando enumerate con zip(): {combinado_enum_zip}")  
+# {0: ('LI', 'limón'), 1: ('PO', 'pomelo'), 2: ('LM', 'lima'), 3: ('MA', 'mandarina')}
 
 ################################
 #      ELIMINAR ELEMENTOS      #
