@@ -1,3 +1,19 @@
+"""
+¡Buenas! ¿Qué tal va la cosa? Espero que vaya todo bien.
+
+Este archivo forma parte de los apuntes de Python que estoy subiendo para mi mejorar mi aprendizaje del lenguaje. 
+Lo subo con la idea de que todas y todos podáis aprovechar el tiempo que estuve inviertiendo y así mejorar vuestra experiencia.
+
+¡Espero que te sea útil!
+
+Ah, sólo pido una cosa: si decidieras utilizar este material para algo público, por favor menciona mi autoría. 
+Una cosa es que puedas disfrutar de lo que he hecho y otra que te adjudiques su autoría.
+
+Fdo: Daniel Cruz        |        GitHub: https://github.com/dCruzCoding
+
+"""
+
+
  #####     ######    ##        ######    #####     #####    ####    ######    ##   ##    ######     #####    
 ##   ##   ##    ##   ##        ##       ##   ##   ##   ##   ##     ##    ##   ###  ##    ##       ##    ##   
 ##        ##    ##   ##        ##       ##        ##        ##     ##    ##   #### ##    ##       ##         
@@ -115,6 +131,7 @@ print(f"No existe Melocotón en 'frutas'?: {('melocotón' not in frutas)}")  #tr
 
 # Repetición de colecciones    {No vale con SETs porque NO ADMITEN DUPLICADOS}
 lista_repetida = frutas * 3
+lista_repetida2 = [2,3,4] * 2    # [2,3,4,2,3,4]
 print(f"Lista repetida: {lista_repetida}")
 
 # Concatenar colecciones (AÑADIR ELEMENTOS)  - OJO! En conjuntos se usa '|' en vez de '+'
@@ -740,7 +757,7 @@ print(f"Pares del diccionario: {paresfrutales}")
 paresfrutales_lista = list(paresfrutales)
 print(f"Ítems como lista: {paresfrutales_lista}")   # seria una lista de pares (tuplas)
 
-# ITEMS tmbn se puede usar para OBTENER CLAVE y VALOR
+# ITEMS tmbn se puede usar para OBTENER CLAVE y VALOR (usando FOR)
 for clave, valor in frutas_dict.items():
     print(f"Clave: {clave}, Valor: {valor}")
 
