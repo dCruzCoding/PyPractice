@@ -1,4 +1,4 @@
-##✍️🐍¡Bienvenido a mis apuntes de Python!🐍✍️
+## ¡Bienvenido a mis apuntes de Python! 🐍✍️
 
 Durante mi formación en Desarrollo Cloud en Azure e IA con Python, ambos en la Escuela Organización Industrial (EOI) decidí hacerme unos apuntes para organizar mejor mis conocimientos y tenerlos más accesibles si en algún momento necesito acudir a ellos. En este repositorio encontrarás dichos apuntes.
 
