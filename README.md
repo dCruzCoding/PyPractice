@@ -1,4 +1,4 @@
-✍️🐍¡Bienvenido a mis apuntes de Python!🐍✍️
+##✍️🐍¡Bienvenido a mis apuntes de Python!🐍✍️
 
 Durante mi formación en Desarrollo Cloud en Azure e IA con Python, ambos en la Escuela Organización Industrial (EOI) decidí hacerme unos apuntes para organizar mejor mis conocimientos y tenerlos más accesibles si en algún momento necesito acudir a ellos. En este repositorio encontrarás dichos apuntes.
 
@@ -8,9 +8,9 @@ Como comento dentro de cada archivo, los subo con la idea de que todas y todos p
 
 PD: Mención especial a @borjacabeza por darme las herramientas y la rama que sirvió como tronco principal para estos apuntes.
 
-### LISTA DE ARCHIVOS
+## LISTA DE ARCHIVOS
 
-#### 01. Conceptos básicos
+### 01. Conceptos básicos
 ##### [     01.01 Variables](https://github.com/dCruzCoding/PyPractice/blob/main/01-Conceptos%20basicos/01.01-Variables.py)
 Introducción a las variables, tipos de datos y buenas prácticas para su uso.
 ##### [     01.02 Colecciones](https://github.com/dCruzCoding/PyPractice/blob/main/01-Conceptos%20basicos/01.02-Colecciones.py)
@@ -22,6 +22,7 @@ Try -> Estructura básica, excepciones múltiples, anidados y 'raise', excepcion
 Estructura básica, uso de funciones, posibles usos, anidados con posibles aplicaciones y listas de comprensión con sus posiblee aplicaciones
 ##### [     01. Extra 1 - Operadores, marcadores y keywords](https://github.com/dCruzCoding/PyPractice/blob/main/01-Conceptos%20basicos/0.1.EXTRA1-Operadores.py)
 
-#### Ejercicios
+
+### Ejercicios
 ##### [     Ejercicios de Lógica, nivel INTERMEDIO](https://github.com/dCruzCoding/PyPractice/blob/main/Ejercicios/Python%20L%C3%93GICA%20(Nivel%20Intermedio).py)
 Incluyen uso de conceptos básicos + funciones + clases.
