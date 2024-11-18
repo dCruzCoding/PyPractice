@@ -2,11 +2,11 @@
 
 Durante mi formación en Desarrollo Cloud en Azure e IA con Python, ambos en la Escuela Organización Industrial (EOI) decidí hacerme unos apuntes para organizar mejor mis conocimientos y tenerlos más accesibles si en algún momento necesito acudir a ellos. En este repositorio encontrarás dichos apuntes.
 
-Como comento dentro de cada archivo, los subo con la idea de que todas y todos podáis aprovechar el tiempo que estuve inviertiendo y esperando que os sea útil y pueda ayudaros a mejorar vuestra experiencia de aprendizaje. Sólo pido una cosa: si decidieras utilizar este material para algo público, por favor menciona mi repositorio. Una cosa es que puedas disfrutar de lo que he hecho y otra que te adjudiques su autoría.
+Como comento dentro de cada archivo, los subo con la idea de que todas y todos podáis aprovechar el tiempo que estuve inviertiendo, esperando que os sea útil y pueda ayudaros a mejorar vuestra experiencia de aprendizaje. Sólo pido una cosa: si decidieras utilizar este material para algo público, por favor menciona mi repositorio. Una cosa es que puedas disfrutarlo y otra que te adjudiques su autoría.
 
 ❤️ 💪 ¡Gracias y mucho ánimo! 💪❤️
 
-PD: Mención especial a @borjacabeza por darme las herramientas y la rama que sirvió como tronco principal para estos apuntes.
+PD: Mención especial a @borjacabeza por darme las herramientas y la semilla que hizo germinar este árbol de conocimiento.
 
 ## LISTA DE ARCHIVOS
 
