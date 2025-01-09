@@ -1,17 +1,18 @@
 """
-¡Buenas! ¿Qué tal va la cosa? Espero que vaya todo bien.
+¡Buenas! ¿Qué tal va la cosa? Espero que todo bien.
 
-Este archivo forma parte de los apuntes de Python que estoy subiendo para mi mejorar mi aprendizaje del lenguaje. 
-Lo subo con la idea de que todas y todos podáis aprovechar el tiempo que estuve inviertiendo y así mejorar vuestra experiencia.
+Este archivo forma parte de unos apuntes de Python que estoy subiendo para acompañar mi aprendizaje del lenguaje. 
+Lo subo con la idea de que todas y todos podáis aprovechar el tiempo que estuve inviertiendo y así también mejorar vuestro
+aprendizaje.
 
 ¡Espero que te sea útil!
 
-Ah, sólo pido una cosa: si decidieras utilizar este material para algo público, por favor menciona mi autoría. 
-Una cosa es que puedas disfrutar de lo que he hecho y otra que te adjudiques su autoría.
+Si decidieras utilizar este material para algo público, por favor menciona mi repositorio. 
+Una cosa es que puedas disfrutarlo y otra que te adjudiques su autoría.
 
 Fdo: Daniel Cruz        |        GitHub: https://github.com/dCruzCoding
-
 """
+
 
  ######   ######   ##    ##   ######   ######   ##    ##    ####    ##    ######     ######  
 ##        ##       ###   ##     ##     ##       ###   ##   ##  ##   ##   ##    ##   ##       

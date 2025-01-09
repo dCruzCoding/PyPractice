@@ -10,17 +10,30 @@ PD: Mención especial a @borjacabeza por darme las herramientas y la rama que si
 
 ### LISTA DE ARCHIVOS
 
-#### 01. Conceptos básicos
-##### [     01.01 Variables](https://github.com/dCruzCoding/PyPractice/blob/main/01-Conceptos%20basicos/01.01-Variables.py)
-Introducción a las variables, tipos de datos y buenas prácticas para su uso.
-##### [     01.02 Colecciones](https://github.com/dCruzCoding/PyPractice/blob/main/01-Conceptos%20basicos/01.02-Colecciones.py)
-Explicación y uso práctico de listas, tuplas, conjuntos y diccionarios en Python.
-##### [     01.03 Sentencias de control, Parte 1: If, While y Try](https://github.com/dCruzCoding/PyPractice/blob/main/01-Conceptos%20basicos/01.03-SentenciasControl1(IF,WHILE,TRY).py)
-If -> Estructura básica, expresiones ternarias y posibles aplicaciones | While -> Estructura básica y posibles aplicaciones  
+#### Apuntes
+##### [     Variables](https://github.com/dCruzCoding/PyPractice/blob/main/Apuntes/Variables.py)
+Introducción a las variables y tipos de datos, métodos para trabajar con strings, y cómo personalizar su formato.
+##### [     Colecciones I: Listas, Tuplas y Sets](https://github.com/dCruzCoding/PyPractice/blob/main/Apuntes/Listas_Tuplas_y_Sets.py)
+Explicación, manipulación, métodos, y uso práctico de listas, tuplas, conjuntos.
+##### [     Colecciones II: Diccionarios](https://github.com/dCruzCoding/PyPractice/blob/main/Apuntes/Diccionarios.py)
+Explicación, manipulación, métodos, y uso práctico de diccionarios.
+##### [     Sentencias de control I: If, While y Try](https://github.com/dCruzCoding/PyPractice/blob/main/Apuntes/SentenciasdeControl1_(IF-WHILE-TRY).py)
+If -> Estructura básica, expresiones ternarias y posibles aplicaciones. | While -> Estructura básica y posibles aplicaciones. 
 Try -> Estructura básica, excepciones múltiples, anidados y 'raise', excepciones personalizadas y posibles aplicaciones.    
-##### [     01.04 Sentencias de control, Parte 2: For](https://github.com/dCruzCoding/PyPractice/blob/main/01-Conceptos%20basicos/01.04-SentenciasControl2(FOR).py)
-Estructura básica, uso de funciones, posibles usos, anidados con posibles aplicaciones y listas de comprensión con sus posiblee aplicaciones
-##### [     01. Extra 1 - Operadores, marcadores y keywords](https://github.com/dCruzCoding/PyPractice/blob/main/01-Conceptos%20basicos/0.1.EXTRA1-Operadores.py)
+##### [     Sentencias de control II: For](https://github.com/dCruzCoding/PyPractice/blob/main/Apuntes/SentenciasdeControl2_(FOR).py)
+Estructura básica, uso de funciones, posibles usos, y anidados con posibles aplicaciones.
+##### [     Operadores y Keywords de Python](https://github.com/dCruzCoding/PyPractice/blob/main/Apuntes/Operadores_y_Keywords.py)
+Operadores y palabras clave de Python.
+##### [     Funciones](https://github.com/dCruzCoding/PyPractice/blob/main/Apuntes/Funciones.py)
+Introducción a las funciones, anidaciones y recursividad.
+##### [     Funciones Lambda](https://github.com/dCruzCoding/PyPractice/blob/main/Apuntes/Funciones_Lambda.py)
+Explicación de funciones lambda y funciones de orden superior.
+##### [     Decoradores](https://github.com/dCruzCoding/PyPractice/blob/main/Apuntes/Decoradores.py)
+Explicación, tipos, posibles aplicaciones y decoradores integrados en Python.
+##### [     Iteradores y Generadores](https://github.com/dCruzCoding/PyPractice/blob/main/Apuntes/Iteradores_y_Generadores.py)
+Iterables e iteradores. Generadores, expresiones generadoras y posibles aplicaciones.
+##### [     Modulos I: counter, random, ...](https://github.com/dCruzCoding/PyPractice/blob/main/Apuntes/Modulos(I).py)
+Información sobre algunos módulos útiles que merece la pena conocer: counter, random, ...
 
 #### Ejercicios
 ##### [     Ejercicios de Lógica, nivel INTERMEDIO](https://github.com/dCruzCoding/PyPractice/blob/main/Ejercicios/Python%20L%C3%93GICA%20(Nivel%20Intermedio).py)

@@ -1,17 +1,18 @@
 """
-¡Buenas! ¿Qué tal va la cosa? Espero que vaya todo bien.
+¡Buenas! ¿Qué tal va la cosa? Espero que todo bien.
 
-Este archivo forma parte de los apuntes de Python que estoy subiendo para mi mejorar mi aprendizaje del lenguaje. 
-Lo subo con la idea de que todas y todos podáis aprovechar el tiempo que estuve inviertiendo y así mejorar vuestra experiencia.
+Este archivo forma parte de unos apuntes de Python que estoy subiendo para acompañar mi aprendizaje del lenguaje. 
+Lo subo con la idea de que todas y todos podáis aprovechar el tiempo que estuve inviertiendo y así también mejorar vuestro
+aprendizaje.
 
 ¡Espero que te sea útil!
 
-Ah, sólo pido una cosa: si decidieras utilizar este material para algo público, por favor menciona mi autoría. 
-Una cosa es que puedas disfrutar de lo que he hecho y otra que te adjudiques su autoría.
+Si decidieras utilizar este material para algo público, por favor menciona mi repositorio. 
+Una cosa es que puedas disfrutarlo y otra que te adjudiques su autoría.
 
 Fdo: Daniel Cruz        |        GitHub: https://github.com/dCruzCoding
-
 """
+
 
  ######   ######   ##    ##   ######   ######   ##    ##    ####    ##    ######     ######  
 ##        ##       ###   ##     ##     ##       ###   ##   ##  ##   ##   ##    ##   ##       
@@ -44,8 +45,7 @@ Fdo: Daniel Cruz        |        GitHub: https://github.com/dCruzCoding
    #          construir colecciones comprendidas                        #
    #                                                                    #
    #    Contenido: Estructura básica, uso de funciones, posibles        #
-   #    usos, anidados con posibles aplicaciones y listas de            #
-   #    comprensión con sus posibles aplicaciones                       #
+   #    usos, y anidados con posibles aplicaciones                      #
    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
            
 
@@ -54,7 +54,7 @@ Fdo: Daniel Cruz        |        GitHub: https://github.com/dCruzCoding
 #                         FOR _ IN __                        #        
 ##############################################################        
 #   FOR permite iterar sobre una secuencia de elementos      #          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
-#   (como listas, tuplas, diccionarios, etc.). En cada       #        # Sintaxis:                                      #
+#   (como listas, tuplas, diccionarios, etc.). En  cada       #        # Sintaxis:                                      #
 #   iteración, se ejecuta el bloque de código con el         #        #     for elemento in secuencia:                 #
 #   valor actual del elemento de la secuencia                #        #         # código que usa 'elemento'            #
 #                                                            #        #         # se repetirá para cada 'elemento'     #
@@ -206,6 +206,8 @@ frase = ""
 for palabra in palabras:
     frase += palabra + " "
 print(frase.strip())
+
+
 
 
 #######################################
@@ -382,73 +384,3 @@ for i in range(len(matriz)):
     if encontrado:
         break
 
-
- #####################################
-#     CREAR LISTAS DE COMPRENSIÓN     #           Las listas de comprensión son una forma ABREVIADA de CREAR LISTAS usando FOR (tipical of Py)
- # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #            T0DO EN UNA SOLA LÍNEA DE CÓDIGO
-
-# SINTAXIS BÁSICA
-# ~~~~~~~~~~~~~~~~~~~~~~~~
-# [nueva_exp for item in iterable if condición]
-
-# nueva_exp: Es la expresión que se aplica a cada elemento del iterable.
-# item: Es el elemento de la secuencia que se va a procesar.
-# iterable: Es el objeto iterable (como una lista, tupla, rango, etc.) que contiene los elementos que se van a procesar.
-# condición (opcional): Es una expresión booleana que filtra los elementos de la secuencia, seleccionando solo aquellos que la cumplen.
-
-''' ¡OJO! Tambien se pueden usar para DICCIONARIOS aunque se complica un poco más el código '''
-
-
-# EJEMPLOS BÁSICOS CON POSIBLES APLICACIONES     
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# 1. Crear una lista de números al cuadrado
-cuadrados = [x**2 for x in range(1, 6)]
-print(cuadrados) # Salida: [1, 4, 9, 16, 25]
-
-
-# 2. Convertir a mayúsculas los nombres en una lista
-nombres = ["ana", "luis", "marta"]
-nombres_mayusculas = [nombre.upper() for nombre in nombres]
-print(nombres_mayusculas) # Salida: ['ANA', 'LUiS', 'MARTA']
-
-
-# 3. Crear una lista de tuplas con el índice y el valor de una lista
-frutas = ["manzana", "naranja", "plátano"]
-indice_fruta = [(i, fruta) for i, fruta in enumerate(frutas)]  # Recuerda enumerate devuelve valores y le da un indice (segun posicion)
-print(indice_fruta) # Salida: [(0, 'manzana'), (1, 'naranja'), (2, 'plátano')]
-
-
-# 4. Crear una lista de diccionarios
-nombres = ["Ana", "Luis", "Marta"]
-edades = [25, 30, 28]
-personas = [{"nombre": nombre, "edad": edad} for nombre, edad in zip(nombres, edades)]  # Vamos a explicarlo por partes...
-# {"nombre": nombre, "edad": edad} -> sea crea un diccionario para cada TUPLA
-# zip(nombres, edades) -> zip devuelve un interador con tuplas resultado de la union de nombres y edades ->  ('Ana', 25), ('Luis', 30), y ('Marta', 28)
-# for nombre, edad in zip(nombres, edades) -> para cada tupla se coge el valor de la primera posición(nombres) y se lo asigna a 'nombre'. E igual con el segundo.
-
-print(personas) # -> lista de diccionarios: [{'nombre': 'Ana', 'edad': 25}, {'nombre': 'Luis', 'edad': 30}, {'nombre': 'Marta', 'edad': 28}]
-
-''' ¡OJO! Tambien se pueden usar para DICCIONARIOS y CONJUNTOS '''
-
-# 5. Obtener los numeros pares multiplicados * 2 en un CONJUNTO (es muy parecido a como se hace con listas, sólo ten en cuenta que NO ES ORDENABLE)
-numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-pares_multiplicados = {numero * 2 for numero in numeros if numero % 2 == 0}   # 'Set comprehension' 
-print(pares_multiplicados)    # -> {4, 8, 12, 16}
-
-
-# 6. Crear un diccionario a partir de dos listas (usando ZIP)
-claves = ['a', 'b', 'c']
-valores = [1, 2, 3]
-diccionario = {clave: valor for clave, valor in zip(claves, valores)}   # 'dict comprehension'
-print(diccionario) # -> {'a': 1, 'b': 2, 'c': 3}
-
-
-# 7. Crear un diccionario filtrando y modificando valores de otro
-precios = {'manzana': 1.5, 'plátano': 0.9, 'naranja': 2.0, 'pera': 1.2}
-# Filtrar productos cuyo precio es mayor a 1 y aplicar un descuento del 10%
-precios_modificados = {producto: precio * 0.9 for producto, precio in precios.items() if precio > 1} # Filtrar precio > 1 y aplicar descuento del 10%
-print(precios_modificados)   # -> {'manzana': 1.35, 'naranja': 1.8, 'pera': 1.08}
-
-# ¿Y si no quiero crear uno nuevo, si no modificar el mio?
-# precios = {producto: (precio * 0.9 if precio > 1 else precio) for producto, precio in precios.items()}
